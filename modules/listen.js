@@ -34,6 +34,8 @@ var fileListen = function(client, config)
         matchCount: 0
     };
     
+    var a = _getDiskSizePerc();
+    
     // Add the actual listener function.
     client.addListener(config.download.listenFor, function(nick, channel, text, message)
     {
@@ -136,6 +138,27 @@ var logFileContext = function(url, dest, config, nick, channel, text, message)
             config.debug && console.log('Saved download meta information to', logFileDest+'.');
         }
     }); 
+}
+
+/**
+ * Returns the amount of disk space is available (in percentage).
+ */
+var _getDiskSizePerc = function()
+{
+    var dfMatch = new RegExp('([0-9]{1,2})\%', 'g');
+    var cmd = 'df .';
+    var child = exec(cmd, function(err, stdout, stderr)
+    {
+        if (false) {
+            // err check
+        }
+        console.log(stdout);
+        var matches = stdout.match(dfMatch);
+        if (matches.length < 1) {
+            
+        }
+        console.log(matches);
+    });
 }
 
 /**

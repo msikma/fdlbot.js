@@ -20,13 +20,13 @@ We have two dependencies: [node-irc](http://node-irc.readthedocs.org/) and
 To install node-irc:
 
 ```
-npm install irc
+$ npm install irc
 ```
 
 Then, simply run the bot:
 
 ```
-node fdlbot.js
+$ node fdlbot.js
 ```
 
 
